@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.db.models import Count, Q
 
 #from game import game
 from .models import Game, Qna
@@ -18,9 +19,20 @@ def home(request):
     
     # get everything
     query_results = Game.objects.all()
+    total_games = Game.objects.count()
+
+    right_5 = Game.objects.filter(score = 5).count()
+    right_4 = Game.objects.filter(score = 4).count()
+    unfinished = Game.objects.filter(score = -1).count()
+
+    print('Total games are: '+ str(total_games))
+    print('Perfect games= ' + str(right_5))
+    print('4 out of 5 = ' + str(right_4))
+    print('Unfinished games= ' + str(unfinished))
+
     # make dictionary
     turn_data = {'query_results': query_results}
-    print(turn_data)
+    #print(turn_data)
     
     
     
