@@ -1,1 +1,16 @@
 {% extends 'game_code/base.html' %}
+
+<body>
+{% block content %}
+    <h1>Home Page</h1>
+    {% for item in query_results %}
+        <p> {{ item }} </p>    
+   
+
+    {% endfor %}
+
+
+{% endblock %}
+<h1>Below the block</h1>
+ 
+</body>
