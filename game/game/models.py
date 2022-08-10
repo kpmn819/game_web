@@ -1,3 +1,4 @@
+
 from django.db import models
 
 # Create your models here.
@@ -19,5 +20,5 @@ class Qna(models.Model):
     answer = models.CharField(max_length=200)
     correct = models.BooleanField()
     def __str__(self):
-        return self.question
+        return self.name
     
