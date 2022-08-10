@@ -1,10 +1,15 @@
-{% extends 'game_code/base.html' %}
+{% extends 'game_code/base2.html' %}
 
 <body>
 {% block content %}
-    <h1>Home Page</h1>
+    <h1>Game Statistics</h1>
+    <h2>Total Games Played: {{total_games}}</h2>
+    <h2>Total Unfinished: {{unfinished}}</h2>
+    <h2>Perfect Score: {{perfect_games}}</h2>
+    <h2>4 out of 5: {{four_of_five}}</h2>
+
     {% for item in wins_by_game %}
-        <p> {{ item }} </p>    
+        <p> <h2>{{ item }} </h2></p>    
    
 
     {% endfor %}

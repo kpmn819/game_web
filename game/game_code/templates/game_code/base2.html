@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+    
+
+      /* Style page content */
+      .main {
+        margin-left: 160px; /* Same as the width of the sidebar */
+        padding: 0px 10px;
+      }
+
+      /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>{% block title %}Frobozz Stats{% endblock %}</title>
+</head>
+
+<body>
+  
+
+  <!-- Page content -->
+  <div class="main">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <h1 class="mt-2">Frobozz Magic Arcade Co</h1>
+        <hr class="mt-0 mb-4">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+</body>
+</html>
