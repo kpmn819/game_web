@@ -24,6 +24,31 @@ def home(request):
     right_5 = Game.objects.filter(score = 5).count()
     right_4 = Game.objects.filter(score = 4).count()
     unfinished = Game.objects.filter(score = -1).count()
+
+    result = Qna.objects.filter(correct = 0).values('question')
+    most_wrong=[entry for entry in result]
+    #print(most_wrong)
+    list_wrong=[]
+    for item in most_wrong:
+        list_wrong.append(item['question'])
+    # now get the unique list
+    unique_questions=[]
+    unique_set = set(list_wrong)
+    for item in unique_set:
+        unique_questions.append(item)
+    # now use this list to find out how many times it occures
+    questions_occur=[]
+    for item in unique_questions: 
+        questions_occur.append((item, list_wrong.count(item)))
+        
+
+    print(questions_occur)
+    
+      
+      
+
+
+
     
     wins_by_game=[]
     g_name = Game.objects.all().values_list('name', flat=True).distinct()
