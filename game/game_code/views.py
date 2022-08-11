@@ -44,15 +44,13 @@ def home(request):
         questions_occur.append((item, list_wrong.count(item)))
     # sort by value
     q_sort = sorted(questions_occur, key= lambda x: x[1], reverse= True)
+    first_worst = q_sort[0][0] + ' was answered wrong ' + str(q_sort[0][1]) + ' times'
+    second_worst = q_sort[1][0] + ' was answered wrong ' + str(q_sort[1][1]) + ' times'
+    third_worst = q_sort[2][0] + ' was answered wrong ' + str(q_sort[2][1]) + ' times'
         
 
     print(q_sort)
-    
-      
-      
-
-
-
+    print(first_worst +'  '+ second_worst+'   '+third_worst)
     
     wins_by_game=[]
     g_name = Game.objects.all().values_list('name', flat=True).distinct()
@@ -63,8 +61,6 @@ def home(request):
     
         print(wins_by_game)
 
-        
-
     print('Total games are: '+ str(total_games))
     print('Perfect games= ' +  str(right_5))
     print('4 out of 5 = ' + str(right_4))
@@ -72,7 +68,7 @@ def home(request):
 
     # make dictionary
     context = {'wins_by_game': wins_by_game, 'total_games': total_games, 'perfect_games':right_5, 'four_of_five':right_4,
-                'unfinished':unfinished}
+                'unfinished':unfinished, 'first_worst':first_worst, 'second_worst':second_worst, 'third_worst':third_worst}
     
     
     
