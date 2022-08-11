@@ -14,18 +14,19 @@ def v1(response):
     return HttpResponse("<h1>View 1</h1>")
 
 def home(request):
-    #turn_data = Qna.objects.get(all)
-    #turn_data = [{'question':'specs', 'answer':'33'}, {'question':'shoes','answer':'99'}]
     
-    # get everything
-    #query_results = Game.objects.all()
+    # easy to get all games
     total_games = Game.objects.count()
-
+    # now how many with 4 or 5 right
     right_5 = Game.objects.filter(score = 5).count()
     right_4 = Game.objects.filter(score = 4).count()
+    # how many were abandoned
     unfinished = Game.objects.filter(score = -1).count()
-
+    
+    # now for a challange, which answers were answered incorrect
+    # most frequently first get all the incorrect questions
     result = Qna.objects.filter(correct = 0).values('question')
+    # 
     most_wrong=[entry for entry in result]
     #print(most_wrong)
     list_wrong=[]
@@ -34,15 +35,18 @@ def home(request):
     # now get the unique list
     unique_questions=[]
     unique_set = set(list_wrong)
+    # create a list of unique questions in the big list
     for item in unique_set:
         unique_questions.append(item)
     # now use this list to find out how many times it occures
     questions_occur=[]
     for item in unique_questions: 
         questions_occur.append((item, list_wrong.count(item)))
+    # sort by value
+    q_sort = sorted(questions_occur, key= lambda x: x[1], reverse= True)
         
 
-    print(questions_occur)
+    print(q_sort)
     
       
       
