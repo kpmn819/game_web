@@ -42,10 +42,8 @@ def home(request):
     print('Unfinished games= ' + str(unfinished))
 
     # make dictionary
-    #turn_data = {'wins_by_game': wins_by_game}
     context = {'wins_by_game': wins_by_game, 'total_games': total_games, 'perfect_games':right_5, 'four_of_five':right_4,
                 'unfinished':unfinished}
-    #print(turn_data)
     
     
     
