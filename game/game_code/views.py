@@ -47,6 +47,7 @@ def home(request):
     first_worst = q_sort[0][0] + ' was answered wrong ' + str(q_sort[0][1]) + ' times'
     second_worst = q_sort[1][0] + ' was answered wrong ' + str(q_sort[1][1]) + ' times'
     third_worst = q_sort[2][0] + ' was answered wrong ' + str(q_sort[2][1]) + ' times'
+    # could have iterated this in the html but who cares
         
 
     print(q_sort)

@@ -2,6 +2,8 @@
 
 <body>
 {% block content %}
+    {% load static%}
+    <img src="{% static '/images/Frobozz_Ind_Web_Logr.jpg' %}" alt="Frobozz Logo">
     <h1>Game Statistics</h1>
     <h2>Total Games Played: {{total_games}}</h2>
     <h2>Total Unfinished: {{unfinished}}</h2>
@@ -13,11 +15,12 @@
    
 
     {% endfor %}
-    <li>Most missed questions</li>
+    <h2>
+    <b><u>Most missed questions</b></u>
     <li>{{first_worst}}</li>
     <li>{{second_worst}}</li>
     <li>{{third_worst}}</li>
-
+    </h2>
 {% endblock %}
 <h1>Below the block</h1>
  
